@@ -47,7 +47,7 @@ The only caveat is you are limited by the number of cores. on 8-core machines yo
 If at some point you decide to use commodity hardware with less cores, you can put each website on it's own host.
 
 So how does the router work? it pass each request to the right website based on the request url.
-In our example '/', '/api' will be sent to the home website etc.
+In our example I want to send '/' and '/api' to the home website, '/profile' to the profile, etc.
 
 Here is router/config.json:
 ```json
@@ -70,7 +70,7 @@ You can see that each site listen on a different port.
 
 ## Try it
 
-1. git clone 
+1. git clone git@github.com:oren/multi-sites.git
 1. cd router && npm install && node server
 1. cd home && node server
 1. cd profile && node server
