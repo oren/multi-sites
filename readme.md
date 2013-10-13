@@ -5,9 +5,13 @@ Splitting a big website into small websites is really nice.
 
 ## What
 We always try to modularize our code - break down a big function to smaller ones or chunk a feature to it's use-cases.
-What about the application level? what if we could take YP.com and break it into multiple website?
-Let's say we have the following sections in our website: Home, Profile and Authentication (login/logout/registration etc).
-Each site is autonomous - it has a git repo with dependencies, and it can be deployed by itself.
+What about the application level? what if we could take a big website and break it into multiple website?  
+
+Before we continue I want to make sure we are talking about a website and not a web application. My definition of a website is a site that most of the rendering is done on the server.
+I say most since some elements of the site might use AJAX and client-side rendering. If on the other hand your site is mainly a single-page-app, and you are doing most of the rendering and logic on the client, this idea of multiple websites doesn't apply to you.
+
+In our example we have a website with the following sections: Home, Profile and Authentication (login/logout/registration etc).
+We are going to split it into small websites, each one is autonomous - it has a git repo with dependencies, and it can be deployed by itself.
 The dependencies for each site will be NPM packages and some of them will be shared with other sites (tracking, css, utilities).
 
 ## How
@@ -49,7 +53,7 @@ If at some point you decide to use commodity hardware with less cores, you can p
 So how does the router work? it pass each request to the right website based on the request url.
 In our example I want to send '/' and '/api' to the home website, '/profile' to the profile, etc.
 
-Here is router/config.json:
+And here is router/config.json:
 ```json
 {
   "home": { "host": "0.0.0.0", "port": 3001 },
