@@ -18,31 +18,31 @@ The dependencies for each site will be NPM packages and some of them will be sha
 
 ```bash
 
-                                              +---------+
-                                              |         | Load Balancing
-                                              |  Nginx  |
-                                              |         | SSL Termination
-                                              +---------+
-                                                   +
-                                                   |
-                                                   v
-                            +--------------------------------------------+
-                            |                                            |
-                            |                 +---------+                |
-                            |                 |         |                |
-                            |                 | router  |                |
-                            |                 |         |                |
-                            |                 +---------+                |
-                            |               /      |      \              |
-                            |              /       |       \             |
-                            |   +---------+   +---------+  +---------+   |
-                            |   |         |   |         |  |         |   |
-                            |   | profile |   | profile |  | profile |   |
-                            |   |         |   |         |  |         |   |
-                            |   +---------+   +---------+  +---------+   |
-                            |                                            |
-                            +--------------------------------------------+
-                                          Production host 1
+                  +---------+
+                  |         | Load Balancing
+                  |  Nginx  |
+                  |         | SSL Termination
+                  +---------+
+                       +
+                       |
+                       v
++--------------------------------------------+
+|                                            |
+|                 +---------+                |
+|                 |         |                |
+|                 | router  |                |
+|                 |         |                |
+|                 +---------+                |
+|               /      |      \              |
+|              /       |       \             |
+|   +---------+   +---------+  +---------+   |
+|   |         |   |         |  |         |   |
+|   | profile |   | profile |  | profile |   |
+|   |         |   |         |  |         |   |
+|   +---------+   +---------+  +---------+   |
+|                                            |
++--------------------------------------------+
+              Production host 1
 ```
 
 We will use the [http-proxy](https://github.com/nodejitsu/node-http-proxy) package written by Nodejitsu. Our router will run on it's own process.
