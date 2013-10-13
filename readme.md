@@ -29,15 +29,15 @@ The dependencies for each site will be NPM packages and some of them will be sha
 +--------------------------------------------+
 |                                            |
 |                 +---------+                |
-|                 |         |                |
-|                 | router  |                |
-|                 |         |                |
-|                 +---------+                |
+|                 |         |                | router: node.js app or Nginx
+|                 | router  |                | home/profile/auth: node.js website
+|                 |         |                | 
+|                 +---------+                | 
 |               /      |      \              |
 |              /       |       \             |
 |   +---------+   +---------+  +---------+   |
 |   |         |   |         |  |         |   |
-|   | profile |   | profile |  | profile |   |
+|   |   home  |   | profile |  |  auth   |   |
 |   |         |   |         |  |         |   |
 |   +---------+   +---------+  +---------+   |
 |                                            |
