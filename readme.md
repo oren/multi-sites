@@ -33,36 +33,23 @@ The dependencies for each site will be NPM packages and some of them will be sha
 |                 | router  |                | home/profile/auth: node.js website
 |                 |         |                | 
 |                 +---------+                | 
-|               /      |      \              |
+|               /  port 3000  \              |
 |              /       |       \             |
 |   +---------+   +---------+  +---------+   |
 |   |         |   |         |  |         |   |
 |   |   home  |   | profile |  |  auth   |   |
 |   |         |   |         |  |         |   |
 |   +---------+   +---------+  +---------+   |
-|                                            |
+|    port 3001     port 3002    port 3003    |
 +--------------------------------------------+
               Production host 1
 ```
 
-We will use the [http-proxy](https://github.com/nodejitsu/node-http-proxy) package written by Nodejitsu. Our router will run on it's own process.
-For the sake of simplicity (deployment/monitoring), the router and the websites can live on the same host, each on it's own process.
-The only caveat is you are limited by the number of cores. on 8-core machines you can have maximum of 7 separate websites + router.
-If at some point you decide to use commodity hardware with less cores, you can put each website on it's own host.
+The router can be a simple node app or a reverse proxy such as Nginx. Our router will be a node app, More specificaly we use the [http-proxy](https://github.com/nodejitsu/node-http-proxy) package written by Nodejitsu.
+For the sake of simplicity (deployment and management) the router and the websites will live on the same host, each on it's own process, but it's possible to put each app on a different host.
 
 So how does the router work? it pass each request to the right website based on the request url.
-In our example I want to send '/' and '/api' to the home website, '/profile' to the profile, etc.
-
-And here is router/config.json:
-```json
-{
-  "home": { "host": "0.0.0.0", "port": 3001 },
-  "profile": { "host": "0.0.0.0", "port": 3002 },
-  "auth": { "host": "0.0.0.0", "port": 3003 }
-}
-```
-
-You can see that each site listen on a different port.
+In our example I want to send '/' and '/api' to the home app, '/profile' to the profile app, etc.
 
 ## Why
 
