@@ -29,8 +29,8 @@ The dependencies for each site will be NPM packages and some of them will be sha
 +--------------------------------------------+
 |                                            |
 |                 +---------+                |
-|                 |         |                | router: node.js app or Nginx
-|                 | router  |                | home/profile/auth: node.js website
+|                 |         |                | router: Node.js app or Nginx
+|                 | router  |                | home/profile/auth: Node.js website
 |                 |         |                | 
 |                 +---------+                | 
 |               /  port 3000  \              |
@@ -45,7 +45,7 @@ The dependencies for each site will be NPM packages and some of them will be sha
               Production host 1
 ```
 
-The router can be a simple node app or a reverse proxy such as Nginx. Our router will be a node app, More specificaly we use the [http-proxy](https://github.com/nodejitsu/node-http-proxy) package written by Nodejitsu.
+The router can be a simple Node app or a reverse proxy such as Nginx. Our router will be a Node app, More specificaly we use the [http-proxy](https://github.com/nodejitsu/node-http-proxy) package written by Nodejitsu.
 For the sake of simplicity (deployment and management) the router and the websites will live on the same host, each on it's own process, but it's possible to put each app on a different host.
 
 So how does the router work? it pass each request to the right website based on the request url.
@@ -70,4 +70,4 @@ In our example I want to send '/' and '/api' to the home app, '/profile' to the 
 1. hit 0.0.0.0:3000/login
 1. hit 0.0.0.0:3000/profile
 
-Each of those url are using different website. The first uses home, on port 3001, the second uses profile on port 3002 and the third uses auth, on port 3003.
+Each of those url are being served from different app - the first uses the home app, the second uses profile and the third uses the auth app.
