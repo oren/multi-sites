@@ -84,3 +84,7 @@ http-proxy adds around 20ms to each request.
 Go to localhost:3000, localhost:3000/login and localhost:3000/profile
 
 Each of those url are being served from different app - the first uses the home app, the second uses profile and the third uses the auth app.
+
+## Other examples
+
+Groupon recently switched from Rails to node and they divided their site into 20 small websites - https://github.com/oren/multi-sites.git
