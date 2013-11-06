@@ -87,4 +87,4 @@ Each of those url are being served from different app - the first uses the home 
 
 ## Other examples
 
-Groupon recently switched from Rails to node and they divided their site into 20 small websites - https://github.com/oren/multi-sites.git
+Groupon recently switched from Rails to node and they divided their site into 20 small websites - https://engineering.groupon.com/2013/misc/i-tier-dismantling-the-monoliths/
